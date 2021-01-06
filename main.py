@@ -42,9 +42,15 @@ slovnik_jmen = {'bob' : '123', 'ann' : 'pass123', 'mike' : 'password123', 'liz' 
 #podminka jmen
 if slovnik_jmen.get(username) == password:
     print('We have 3 texts to be analyzed.')
-    cislo = input('Enter a number btw. 1 and 3 to select: ')
 else:
-    print('Nejste zaregistrovaný')
+    print('Wrong input of your nickname or password!')
+    exit()
+cislo = int(input('Enter a number btw. 1 and 3 to select: '))
+if cislo >= 1 and cislo <= 3:
+    print('')
+else:
+    print('Wrong input of the number! Choose a number only from 1 to 3!')
+    exit()
 print(oddelovac)
 #nazvy
 paragraf = TEXTS[int(cislo) - 1]
@@ -75,7 +81,7 @@ print('There are ' + str(pocet_cisel) + ' numeric strings')
 print(oddelovac)
 #druha cast
 pocet_slov = {}
-rozdeleni_textu_2 = TEXTS[1]
+rozdeleni_textu_2 = TEXTS[int(cislo) - 1]
 no_integer = ''.join([rozdeleni_textu_2 for rozdeleni_textu_2 in rozdeleni_textu_2 if not rozdeleni_textu_2.isdigit()])
 no_integer =  str(no_integer).replace( ','  , ' ' )
 no_integer =  str(no_integer).replace( '.'  , ' ' )
